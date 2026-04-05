@@ -66,7 +66,7 @@ contract LendingPoolTest is Test {
         vm.prank(alice);
         pool.borrow(700 ether);
 
-        (,uint256 borrowed,) = pool.getPosition(alice);
+        (, uint256 borrowed,) = pool.getPosition(alice);
         assertEq(borrowed, 700 ether);
     }
 
@@ -87,7 +87,7 @@ contract LendingPoolTest is Test {
         vm.prank(alice);
         pool.repay(200 ether);
 
-        (,uint256 borrowed,) = pool.getPosition(alice);
+        (, uint256 borrowed,) = pool.getPosition(alice);
         assertEq(borrowed, 300 ether);
     }
 
@@ -100,7 +100,7 @@ contract LendingPoolTest is Test {
         vm.prank(alice);
         pool.repay(500 ether);
 
-        (,uint256 borrowed,) = pool.getPosition(alice);
+        (, uint256 borrowed,) = pool.getPosition(alice);
         assertEq(borrowed, 0);
     }
 
@@ -131,7 +131,7 @@ contract LendingPoolTest is Test {
 
         pool.accrueInterest(alice);
 
-        (,uint256 borrowed,) = pool.getPosition(alice);
+        (, uint256 borrowed,) = pool.getPosition(alice);
         assertTrue(borrowed > 500 ether);
     }
 
@@ -157,7 +157,7 @@ contract LendingPoolTest is Test {
         vm.prank(alice);
         pool.borrow(500 ether);
 
-        (, , uint256 hf) = pool.getPosition(alice);
+        (,, uint256 hf) = pool.getPosition(alice);
         assertTrue(hf > 1e18);
     }
 

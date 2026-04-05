@@ -12,7 +12,7 @@ contract LendingPool {
 
     uint256 public constant LTV = 75; // 75%
     uint256 public constant LIQUIDATION_THRESHOLD = 100; // HF > 1 required
-    uint256 public constant INTEREST_PER_SECOND = 3170979198; 
+    uint256 public constant INTEREST_PER_SECOND = 3170979198;
     // ~10% APR scaled to 1e18 debt basis approximation
 
     struct Position {

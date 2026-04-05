@@ -35,7 +35,7 @@ contract MyTokenTest is Test {
     }
 
     function testMint() public {
-        uint before = token.totalSupply();
+        uint256 before = token.totalSupply();
 
         token.mint(charlie, 100 ether);
 

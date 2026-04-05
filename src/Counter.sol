@@ -14,7 +14,7 @@ contract MyToken {
     event Approval(address indexed owner, address indexed spender, uint256 value);
 
     constructor() {
-        totalSupply = 1000 * 10**18;
+        totalSupply = 1000 * 10 ** 18;
         balanceOf[msg.sender] = totalSupply;
         emit Transfer(address(0), msg.sender, totalSupply);
     }

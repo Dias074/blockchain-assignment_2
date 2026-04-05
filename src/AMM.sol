@@ -50,10 +50,7 @@ contract AMM {
         if (lpToken.totalSupply() == 0) {
             shares = sqrt(amountA * amountB);
         } else {
-            shares = min(
-                (amountA * lpToken.totalSupply()) / reserveA,
-                (amountB * lpToken.totalSupply()) / reserveB
-            );
+            shares = min((amountA * lpToken.totalSupply()) / reserveA, (amountB * lpToken.totalSupply()) / reserveB);
         }
 
         require(shares > 0, "zero shares");
@@ -88,11 +85,7 @@ contract AMM {
         emit LiquidityRemoved(msg.sender, amountA, amountB, lpAmount);
     }
 
-    function getAmountOut(uint256 amountIn, uint256 reserveIn, uint256 reserveOut)
-        public
-        pure
-        returns (uint256)
-    {
+    function getAmountOut(uint256 amountIn, uint256 reserveIn, uint256 reserveOut) public pure returns (uint256) {
         require(amountIn > 0, "zero in");
         require(reserveIn > 0 && reserveOut > 0, "no liquidity");
 
